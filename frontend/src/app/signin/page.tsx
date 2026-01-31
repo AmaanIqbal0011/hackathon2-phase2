@@ -34,8 +34,17 @@ export default function SigninPage() {
       // Store the token
       localStorage.setItem('access_token', response.data.access_token);
 
+      // Fetch user profile and store user data
+      try {
+        const { fetchAndStoreUserProfile } = await import('../../lib/auth');
+        await fetchAndStoreUserProfile();
+      } catch (profileError) {
+        console.error('Error fetching user profile:', profileError);
+        // Continue to dashboard even if profile fetch fails
+      }
+
       // Redirect to main page
-      router.push('/');
+      router.push('/dashboard');
     } catch (err) {
       setError('Invalid email or password');
       console.error(err);

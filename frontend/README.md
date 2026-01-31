@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo App - Professional SaaS-Style Frontend
+
+This is a professional SaaS-style task management application with a modern UI/UX, featuring a marketing landing page and a comprehensive dashboard.
+
+## Features
+
+- **Marketing Landing Page** (`/`): Professional landing page with hero section, features grid, how-it-works section, and call-to-action
+- **Protected Dashboard** (`/dashboard`): SaaS-style dashboard with sidebar navigation, statistics cards, and task management
+- **Modern UI Components**: Statistics cards, task cards with hover actions, inline add form
+- **Responsive Design**: Fully responsive layout that works on mobile, tablet, and desktop
+- **Authentication**: Secure authentication flow with login/signup pages
+- **Task Management**: Add, edit, delete, and mark tasks as complete with visual feedback
+
+## Pages
+
+- `/` - Landing page introducing the product professionally
+- `/dashboard` - Protected dashboard with sidebar navigation
+- `/signin` - User sign-in page
+- `/signup` - User registration page
+
+## Tech Stack
+
+- Next.js 16+ with App Router
+- React
+- TypeScript
+- Tailwind CSS
+- Axios for API requests
 
 ## Getting Started
 
@@ -16,21 +42,31 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application follows a component-based architecture with:
 
-## Learn More
+- **Components**: Reusable UI elements in `src/components/`
+  - `ui/` - General UI components (StatCard, TaskCard, Sidebar, Header)
+  - `forms/` - Form components (AddTaskForm)
+  - `landing/` - Landing page specific components
+  - `dashboard/` - Dashboard specific components
 
-To learn more about Next.js, take a look at the following resources:
+- **Libraries**: Utility functions and constants in `src/lib/`
+  - `auth.ts` - Authentication utilities
+  - `tasks.ts` - Task-related utilities
+  - `types.ts` - TypeScript type definitions
+  - `constants.ts` - Application constants
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Pages**: Next.js App Router pages in `src/app/`
+  - `page.tsx` - Landing page
+  - `dashboard/` - Dashboard layout and page
+  - `signin/` and `signup/` - Authentication pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Integration
 
-## Deploy on Vercel
+The application integrates with the existing backend API without changes, preserving all authentication and task management endpoints.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was generated using the Specify framework with Spec-Driven Development methodology.
