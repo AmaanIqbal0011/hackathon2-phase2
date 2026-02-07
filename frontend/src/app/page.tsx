@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from '@/components/landing/HeroSection';
-import FeaturesGrid from '@/components/landing/FeaturesGrid';
-import HowItWorks from '@/components/landing/HowItWorks';
-import CallToAction from '@/components/landing/CallToAction';
+import HeroSection from '@/app/components/landing/HeroSection';
+import FeaturesGrid from '@/app/components/landing/FeaturesGrid';
+import HowItWorks from '@/app/components/landing/HowItWorks';
+import CallToAction from '@/app/components/landing/CallToAction';
 
 
 const LandingPage: React.FC = () => {

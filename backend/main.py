@@ -6,6 +6,7 @@ from typing import AsyncGenerator, Optional
 from datetime import datetime, timedelta
 from uuid import UUID, uuid4
 
+
 from fastapi import FastAPI, HTTPException, Request, status, Depends
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -233,6 +234,14 @@ async def health():
     return {"status": "ok"}
 
 
+@app.get("/auth/me", response_model=UserResponse)
+async def get_me(
+    current_user: User = Depends(get_current_user),
+):
+    return current_user
+
+
+
 # ---------- AUTH ----------
 @app.post("/auth/signup", response_model=UserResponse, status_code=201)
 async def signup(
@@ -343,11 +352,3 @@ async def delete_todo(
 
     await session.delete(todo)
     await session.commit()
-
-
-# ---------- USER PROFILE ----------
-@app.get("/api/profile", response_model=UserResponse)
-async def get_profile(
-    user: User = Depends(get_current_user)
-):
-    return user
